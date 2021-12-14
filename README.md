@@ -28,36 +28,36 @@ Additional considerations:
 ## HTML SETUP
 
 ### Home page/list page
-- Div to hold list of plants
-    - each plant should be a link to its detail page (anchor tag) (in render function wrap it in `<a>` tag and set href to have id query string in the URL)
+- Div to hold list of things
+    - each thing should be a link to its detail page (anchor tag) (in render function wrap it in `<a>` tag and set href to have id query string in the URL)
 
 ## EVENTS - Home
 - on load
-    - gets plants from the database
-        - use async and await - to call a function that calls the server and returns the array of plants
-    - displays those plants (loop, render, append)
+    - gets things from the database
+        - use async and await - to call a function that calls the server and returns the array of things
+    - displays those things (loop, render, append)
         - for loop
-        - call render function that returns DOM node of each plant
+        - call render function that returns DOM node of each thing
         - append to list container
 
 ### Detail page
-- Div to hold specific plant details
+- Div to hold specific thing details
 
 ## EVENTS - details page
 - on load
-    - figures out which plant object to fetch based on URL query string
-    - fetch the specific plant object from the database\
-    - display this single plant info
-        - call render function to return DOM node of all plants details
+    - figures out which thing object to fetch based on URL query string
+    - fetch the specific thing object from the database\
+    - display this single thing info
+        - call render function to return DOM node of all things details
         - append DOM node to details container
 
 ## FUNCTIONS
 
-### fetchPlantsArray()
+### fetchThingArray()
   - in seperate fetch-utils js
   - remember: have supabase URL + Key with: const client = supabase.createClient(URL, Key)
   - remember: add supabase CDN script tag to head of HTML file
-  - remember: export async function fetchPlants()
+  - remember: export async function fetchThings()
   - remember: await keyword
   - const returnedStuff = await client
     - .from('name of table')
@@ -65,7 +65,7 @@ Additional considerations:
 - return the data you want from the returned object  
     - return returnedStuff.data
 
-### fetchPlantObject(id)
+### fetchThingObject(id)
     - use URLSearchParams to grab the ID of the desired object from the URL. hint: new URLSearchParams(window.location.search), then use .get('id')
     - then you have the id
     - use async/await function
@@ -76,7 +76,7 @@ Additional considerations:
 
 
 
-### renderListOfPlants
+### renderListOfThings
     - creates DOM elements
     - sets textContent and other properties equal to data in object
     - remember: set href of anchor tag to './detail/?=${id}' using query string
@@ -84,7 +84,7 @@ Additional considerations:
     - appends in Div
     - returns DOM node
 
-### renderDetailOfPlant
+### renderDetailOfThing
     - create DOM elements
     - sets textContent and other properties
     - add classLists
